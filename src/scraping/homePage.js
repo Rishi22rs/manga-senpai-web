@@ -3,7 +3,7 @@ import cheerio from "cheerio";
 export const homePage = async () => {
   let data = {};
   let tmp = [];
-  await fetch("https://w.mangairo.com/home", { mode: "cors" })
+  await fetch("https://cors-anywhere.herokuapp.com/https://w.mangairo.com/home")
     .then((res) => res.text())
     .then((text) => {
       const $ = cheerio.load(text);
