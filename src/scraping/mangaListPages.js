@@ -1,8 +1,9 @@
 import cheerio from "cheerio";
+import { PROXY_SERVER_URL } from "../proxy/localProxy";
 
 export const mangaListPages = async (url) => {
   let tmp = [];
-  await fetch(url)
+  await fetch(`${PROXY_SERVER_URL}${url}`)
     .then((res) => res.text())
     .then((text) => {
       const $ = cheerio.load(text);

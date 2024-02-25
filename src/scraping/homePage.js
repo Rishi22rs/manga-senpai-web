@@ -1,9 +1,14 @@
 import cheerio from "cheerio";
+import { PROXY_SERVER_URL } from "../proxy/localProxy";
 
 export const homePage = async () => {
   let data = {};
   let tmp = [];
-  await fetch("https://cors-anywhere.herokuapp.com/https://w.mangairo.com/home")
+  await fetch(`https://proxy.cors.sh/https://w.mangairo.com/home`, {
+    headers: {
+      "x-cors-api-key": "temp_27ce5dd2f11866003fa12de4ed8a3a87",
+    },
+  })
     .then((res) => res.text())
     .then((text) => {
       const $ = cheerio.load(text);
